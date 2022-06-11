@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pb;
 
-import "internal/adapters/framework/left/grpc/proto/number_msg.proto";
+//import "internal/adapters/framework/left/grpc/proto/number_msg.proto";
 //import "number_msg.proto";
 
 option go_package = "./pb";
@@ -12,4 +12,14 @@ service ArithmeticService {
   rpc GetSubtraction(OperationParameters) returns (Answer) {}
   rpc GetMultipulication(OperationParameters) returns (Answer) {}
   rpc GetDivision(OperationParameters) returns (Answer) {}
+}
+
+message Answer {
+  int32 value = 1;
+
+}
+
+message OperationParameters {
+  int32 a = 1;
+  int32 b = 2;
 }
