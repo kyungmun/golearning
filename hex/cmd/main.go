@@ -25,7 +25,7 @@ func main() {
 	// }
 	// fmt.Println(result)
 
-	result, err := arithmetic.NewAdapter().Addition(3, 3)
+	result, err := arithmetic.NewAdapter().Multipulication(3, 3)
 	if err != nil {
 		fmt.Println(err)
 	}
