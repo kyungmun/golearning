@@ -1,0 +1,35 @@
+syntax = "proto3";
+package chat;
+
+//xxx.pb.go, xxx_grpc.pb.go 파일이 새성될 경로 지정.
+option go_package ="github.com/kyungmun/golearning/grpc-sample/chat";
+
+message Message {
+  string body = 1;
+}
+
+service ChatService {
+  rpc SayHello(Message) returns (Message) {}
+}
+
+//이렇게 작성하고
+//package 이름으로 디렉토리를 만들고 여기서는 chat 경로
+//이 소스에 option go_package 옵션으로 패키지명을 적어준다. 
+
+//메인 경로에서 아래 명령으로 pb.go 파일을 자동 생성한다.
+
+//--proto_path 옵션으로 proto 파일이 있는 경로 지정.
+//--go_out 옵션이 pb.go 파일이 생성되고
+//--go-grpc_out 옵션이 _grpc.pb.go 파일이 생성 됨
+//맨뒤에 proto 파일을 여러개 나열할 수 있다.
+
+//지금 이 chat.proto 파일은 chat 경로에 있는 상태에서 chat 경로에 들어와서 아래 명령어 수행
+
+/*
+--go_out= 값은 현재 명령어 실행되는 위치 기준에서 생성될 위치를 지정하면 됨.
+protoc --go_out=. \
+       --go_opt=paths=source_relative \
+       --go-grpc_out=. \
+       --go-grpc_opt=paths=source_relative \
+       chat.proto
+*/
