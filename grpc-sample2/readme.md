@@ -14,7 +14,7 @@ proto 파일 내용이 갱신 된다면 위 명령 재실행으로 생성된 소
 
 #### go mode init 으로 프로젝트 모듈 설정과 필요한 모듈 정리
 >go mod init github.com/kyungmun/golearning/grpc-sample2
-go mod tidy
+>go mod tidy
 
 #### 메소드 구현
 proto 파일에서 정의하고 grpc.pb.go 에 생성된 서비스 인터페이스 메소드를 구현한다.
