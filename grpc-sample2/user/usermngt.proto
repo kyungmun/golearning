@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/kyungmun/golearning/grpc-sample2/user";
+
+//생성/수정시 사용
+message UserRequest {
+  string name = 1;
+  int32 age = 2;
+  string mobile = 3;
+}
+
+message UserResponse {
+  string name = 1;
+  int32 age = 2;
+  string mobile = 3;
+  string uuid = 4;
+}
+
+//읽기/삭제시 사용
+message UserID {
+  string uuid = 1;
+}
+
+service UserManagementService {
+  rpc CreateUser(UserRequest) returns (UserResponse) {};
+  rpc DeleteUser(UserID) returns (UserResponse) {};
+}
