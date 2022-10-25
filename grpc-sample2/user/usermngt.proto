@@ -23,7 +23,16 @@ message UserID {
   string uuid = 1;
 }
 
+message UserList {
+  repeated UserResponse users = 1;
+}
+
+message GetUserParams {
+
+}
+
 service UserManagementService {
   rpc CreateUser(UserRequest) returns (UserResponse) {};
+  rpc GetUsers(GetUserParams) returns (UserList) {}
   rpc DeleteUser(UserID) returns (UserResponse) {};
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
@@ -30,11 +31,22 @@ func main() {
 	}
 	log.Printf("Success CreateUser : %v\n", newResponse)
 
-	var delUser = pb.UserID{Uuid: newResponse.Uuid}
-	delResponse, err := client.DeleteUser(ctx, &delUser)
+	params := &pb.GetUserParams{}
+	r, err := client.GetUsers(ctx, params)
 	if err != nil {
-		log.Fatalf("DeleteUser : %v", err)
+		log.Fatalf("GetUsers : %v", err)
 	}
-	log.Printf("Success DeleteUser : %v\n", delResponse)
+	log.Printf("get user list : %v", r.GetUsers())
+	for i, user := range r.GetUsers() {
+		fmt.Printf(" %d, %v\n", i, user)
 
+	}
+	/*
+		var delUser = pb.UserID{Uuid: newResponse.Uuid}
+		delResponse, err := client.DeleteUser(ctx, &delUser)
+		if err != nil {
+			log.Fatalf("DeleteUser : %v", err)
+		}
+		log.Printf("Success DeleteUser : %v\n", delResponse)
+	*/
 }
