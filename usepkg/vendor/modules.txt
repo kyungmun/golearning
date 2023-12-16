@@ -1,0 +1,6 @@
+# github.com/guptarohit/asciigraph v0.5.2
+## explicit
+github.com/guptarohit/asciigraph
+# github.com/tuckersGo/musthaveGo/ch16/expkg v0.0.0-20210412031849-4650e6e64656
+## explicit
+github.com/tuckersGo/musthaveGo/ch16/expkg
